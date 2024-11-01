@@ -58,13 +58,17 @@ namespace Clemency.Grid
             }
         }
         
-        bool IsValid(int x, int y) => x >= 0 && y >= 0 && x < _width && y < _height;
+        public bool IsValid(Vector2Int gridPos) => IsValid(gridPos.x, gridPos.y);
+        public bool IsValid(int x, int y) => x >= 0 && y >= 0 && x < _width && y < _height;
+
+        public bool IsEmptyPosition(Vector2Int gridPos) => IsEmptyPosition(gridPos.x, gridPos.y);
+        public bool IsEmptyPosition(int x, int y) => GetValue(x, y) == null;
 
         public Vector2Int GetXY(Vector3 worldPosition) => _coordinateConverter.WorldToGrid(worldPosition, _cellSize, _origin);
         
         public Vector3 GetWorldPositionCenter(int x, int y) => _coordinateConverter.GridToWorldCenter(x, y, _cellSize, _origin);
         
-        Vector3 GetWorldPosition(int x, int y) => _coordinateConverter.GridToWorld(x, y, _cellSize, _origin);
+        public Vector3 GetWorldPosition(int x, int y) => _coordinateConverter.GridToWorld(x, y, _cellSize, _origin);
         
         void DrawDebugLines() {
             const float k_duration = 100f;
