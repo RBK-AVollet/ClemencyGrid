@@ -19,6 +19,10 @@ namespace Clemency.Grid
             return new GridSystem2D<T>(width, height, cellSize, origin, new VerticalConverter(), debug);
         }
         
+        public static GridSystem2D<T> HorizontalGrid(int width, int height, float cellSize, Vector3 origin, bool debug = false) {
+            return new GridSystem2D<T>(width, height, cellSize, origin, new HorizontalConverter(), debug);
+        }
+        
         public GridSystem2D(int width, int height, float cellSize, Vector3 origin, CoordinateConverter coordinateConverter, bool debug) {
             _width = width;
             _height = height;
