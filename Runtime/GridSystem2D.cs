@@ -15,6 +15,10 @@ namespace Clemency.Grid
 
         public event Action<int, int, T> OnValueChanged;
 
+        public static GridSystem2D<T> VerticalGrid(int width, int height, float cellSize, Vector3 origin, bool debug = false) {
+            return new GridSystem2D<T>(width, height, cellSize, origin, new VerticalConverter(), debug);
+        }
+        
         public GridSystem2D(int width, int height, float cellSize, Vector3 origin, CoordinateConverter coordinateConverter, bool debug) {
             _width = width;
             _height = height;
@@ -64,7 +68,7 @@ namespace Clemency.Grid
 
             for (int x = 0; x < _width; x++) {
                 for (int y = 0; y < _height; y++) {
-                    CreateWorldText(parent, x + "," + y, GetWorldPositionCenter(x, y), _coordinateConverter.Forward);
+                    CreateWorldText(parent, x + "," + y, GetWorldPositionCenter(x, y), _coordinateConverter.Forward, color: Color.white);
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, k_duration);
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, k_duration);
                 }
