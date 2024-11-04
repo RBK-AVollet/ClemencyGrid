@@ -1,0 +1,14 @@
+{
+    "name": "com.Clemency.Grid",
+    "version": "1.0.0",
+    "displayName": "Clemency Grid",
+    "description": "This is a grid implementation for grid based game part of the Clemency package bundle.",
+    "unity": "2022.1",
+    "keywords": [
+        "Grid"
+    ],
+    "author": {
+        "name": "Antoine VOLLET",
+        "email": "antoinevollet.pro@gmail.com"
+    }
+  }
